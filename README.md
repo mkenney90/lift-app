@@ -1,3 +1,9 @@
+A simple user interface for creating workout routines.
+
+Add an existing movement from the default provided lifts or add your own. Enter the relevant information and save the workout for future reference.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
