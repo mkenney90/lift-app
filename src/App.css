@@ -1,16 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300");
+
+body {
+    background-color: lightsteelblue;
+}
+
+.pure-g, .pure-g *,
+ .pure-button, .pure-button *,
+  .pure-g [class*="pure-u"] {
+    font-family: Overpass, sans-serif;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    min-width: 600px;
 }
 
 .App-header {
@@ -24,15 +30,315 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.workout_wrapper {
+    height: 350px;
+    margin: 0 auto;
+    padding: 0 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.workout_btn_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.workout_btn_wrapper div {
+    position: relative;
+    width: 50%;
+    height: 50px;
+    line-height: 50px;
+    display: inline;
+    vertical-align: middle;
+    font-size: 15pt;
+    color: whitesmoke;
+    margin: 1px;
+}
+
+.workout_btn_wrapper div::after {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 200ms;
+}
+
+.workout_btn_wrapper div:hover::after {
+    background-color: white;
+    opacity: 0.2;
+}
+
+.workout_btn_wrapper div:active::after {
+    background-color: black;
+    opacity: 0.2;
+}
+
+#workout_name_input {
+    margin: 5px;
+}
+
+.workout-save-btn {
+    background-color: darkgreen;
+    border-radius: 0;
+}
+
+.workout-clear-btn {
+    background-color: rgb(161, 39, 39);
+    border-radius: 0;
+}
+
+.workout_outline {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    padding: 4px 0;
+    height: 75%;
+    outline: 2px solid whitesmoke;
+    font-size: 15pt;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.workout_outline_form {
+    height: 15%;
+}
+
+.workout_outline_controls {
+    height: 10%;
+}
+
+.workout_item {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.workout_item span {
+    display: inline-block;
+    text-align: left;
+    width: 35%;
+}
+
+.workout_item span:hover {
+    color: orangered;
+    font-weight: 700;
+}
+
+.workout_item span:hover::after {
+    content: url("https://via.placeholder.com/16/e11/eee.png?text=X");
+    margin-left: 10px;
+    font-size: 12pt;
+}
+
+.lift_inputs input {
+    width: 30px;
+    margin: 0 12px;
+    font-size: 13pt;
+}
+
+.lift_inputs {
+    display: inline-block;
+    margin: 0 4px;
+    text-align: right;
+    width: 60%;
+}
+
+input[type="checkbox"] {
+    margin: 5px;
+}
+
+.workout_outline .pure-form input {
+    padding: .25em .3em;
+} 
+
+.pure-form input.error {
+    border-color: orangered;
+}
+
+.saved_workouts {
+    margin: 13px auto;
+}
+
+.saved_item {
+    outline: 1px solid whitesmoke;
+    background-color: rgba(255, 255, 255, 0.404);
+    width: 100%;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.saved_item thead {
+    font-weight: 800;
+    width: 99%;
+    background-color: rgba(255, 255, 255, 0.604);
+}
+
+.saved_item tr {
+    height: 30px;
+}
+
+.saved_item p {
+    margin-left: 10%;
+    text-align: left;
+}
+
+.open_saved_workouts {
+    margin: 6px auto;
+    line-height: 35px;
+    height: 35px;
+    background-color: whitesmoke;
+    outline: 1px solid darkgrey;
+    display: inline-block;
+}
+
+.exercise_list {
+	min-height: 600px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin: 15px auto;
+	padding: 0 5px;
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+
+.exercise_btn {
+    position: relative;
+    flex: 0 1 50px;
+    border: 1px solid rgb(85, 88, 95);
+    background-color: rgb(75, 77, 83);
+    color: white;
+    font-size: 12pt;
+    font-family: Overpass, sans-serif;
+    margin: 3px auto;
+    padding: 3px;
+    opacity: 1;
+    transition-duration: 200ms;
+    cursor: pointer;
+}
+
+.exercise_btn p {
+    position: relative;
+    vertical-align: middle;
+}
+
+.exercise_btn.active:hover {
+    background-color: rgb(52, 58, 73);
+    box-shadow: 0 0 1px 1px gray;
+}
+
+.exercise_btn.active:active {
+    background-color: rgb(48, 49, 53);
+}
+
+.exercise_btn.inactive {
+    opacity: 0.5;
+}
+
+.delete_btn {
+    background-color: rgb(161, 39, 39);
+    line-height: 56px;
+}
+
+.delete_btn:hover {
+    background-color: rgb(187, 40, 40);
+}
+
+.exercise_input {
+    margin: 0px 5px;
+    font-size: 12pt;
+    vertical-align: middle;
+}
+
+.btn_add {
+    border: 1px solid steelblue;
+    background-color: steelblue;
+    color: white;
+    height: 30px;
+    vertical-align: middle;
+    font-size: 11pt;
+    font-family: Overpass, sans-serif;
+}
+
+.btn_add:hover {
+    background-color: rgb(42, 76, 104);
+}
+
+.btn_add:active {
+    background-color: rgb(91, 166, 228);
+}
+
+.btn_add:disabled {
+    background-color: lightgray;
+    border-color: gray;
+}
+
+.placeholder_text {
+    display: inline-block;
+    color: #282c34;
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.pure-table {
+    border: none;
+}
+
+.pure-table td {
+    padding: .25em .5em;
+}
+
+.pure-table tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, .25);
+}
+
+@media (min-width: 768px) {
+    .App {
+        width: 85%;
+    }
+
+}
+
+@media (min-width: 950px) {
+    .App {
+        width: 70%;
+    }
+
+    .exercise_list {
+        min-height: 400px;
+    }
+
+    .exercise_btn {
+        font-size: 11pt;
+    }
+
+}
+
+@media (min-width: 1250px) {
+    .App {
+        width: 50%;
+    }
+
+    .exercise_btn {
+
+        font-size: 12pt;
+    }
+
+}
+
+@media (min-width: 1475px) {
+    .App {
+        width: 45%;
+    }
+
+}
+
+@media (min-width: 1875px) {
+    .App {
+        width: 30%;
+    }
+
 }
